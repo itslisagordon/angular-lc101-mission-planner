@@ -1,4 +1,6 @@
 .box {
     display: flex;
     padding: 10px;
- }
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: rgb(108, 35, 131);
+}

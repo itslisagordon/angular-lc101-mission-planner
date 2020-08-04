@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { disableDebugTools } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-equipment',
@@ -27,5 +28,22 @@ export class EquipmentComponent implements OnInit {
    ngOnInit() { }
 
    // Code your addItem function here:
+   addItem(equipmentObject) {
+    //  if (!this.cargoHold.includes(equipmentObject){
+      this.cargoHold.push(equipmentObject);
+      this.cargoMass += equipmentObject.mass;
+    //  }
+      return this.maximumAllowedMass - 200 < this.cargoMass;
+   }
+
+   isDisabled(item) {
+    return this.cargoHold.length === this.maxItems || item.mass + this.cargoMass > this.maximumAllowedMass
+  }
+
+  emptyHold(){
+    this.cargoHold = [];
+    this.cargoMass = 0;
+    
+  }
    
 }
